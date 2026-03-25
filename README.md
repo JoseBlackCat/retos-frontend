@@ -329,9 +329,18 @@ Este proyecto está disponible bajo licencia MIT. Siéntete libre de utilizarlo,
 
 ---
 
+## � Cambios Recientes
+
+### v0.0.2 (Marzo 25, 2026)
+- ✅ Actualización de estilos en página de portafolio
+- ✅ Mejoras en componentes de portafolio
+- ✅ Optimización de CSS personalizado
+
+---
+
 ## 🙌 Agradecimientos
 
 Gracias por utilizar Retos Frontend. Esperamos que este portafolio sea una excelente forma de mostrar tus habilidades y proyectos al mundo.
 
-**Versión**: 0.0.1  
-**Última actualización**: Marzo 2026
+**Versión**: 0.0.2  
+**Última actualización**: Marzo 25, 2026

@@ -18,27 +18,31 @@ import ProfileImg from "../../assets/images/portafolio/photo-profile.png";
     <header>Header</header>
     <main>
       <section id="hero-section">
-        <article class="hero-content">
-          <h2 class="hero-title">Hola!, Soy José Marchan 👋🏻</h2>
-          <h1 class="hero-subtitle">Desarrollador <span>Front</span>end</h1>
+        <div class="container">
+          <article class="hero-content">
+            <h2 class="hero-title">Hola!, Soy José Marchan 👋🏻</h2>
+            <h1 class="hero-subtitle">Desarrollador <span>Front</span>end</h1>
 
-          <p class="hero-description">
-            Soy un desarrollador frontend de Perú, te ayudaré a desarrollar tus
-            proyectos web para que sean modernos y funcionales.
-          </p>
+            <p class="hero-description">
+              Soy un desarrollador frontend de Perú, te ayudaré a desarrollar
+              tus proyectos web para que sean modernos y funcionales.
+            </p>
 
-          <div class="hero-buttons">
-            <a href="#" class="primary-button">Contáctame</a>
-            <a href="#" class="secondary-button">Explorar proyectos</a>
-          </div>
-        </article>
-        <figure class="profile-card">
-          <Image
-            src={ProfileImg}
-            alt="Foto de perfil de José Marchan"
-            class="profile-image"
-          />
-        </figure>
+            <div class="hero-buttons">
+              <a href="#" class="primary-button">Contáctame</a>
+              <a href="#" class="secondary-button">Explorar proyectos</a>
+            </div>
+          </article>
+          <article class="hero-image-column">
+            <figure class="profile-card">
+              <Image
+                src={ProfileImg}
+                alt="Foto de perfil de José Marchan"
+                class="profile-image w-screen"
+              />
+            </figure>
+          </article>
+        </div>
       </section>
     </main>
     <footer>Footer</footer>

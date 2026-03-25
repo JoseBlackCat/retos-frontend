@@ -3,10 +3,12 @@
     --secondary-color: #24262f;
     --tertiary-color: #4e525a;
 
-    --profile-size: 400px;
+    --profile-size: clamp(250px, 90vw, 450px);
+
+    /* También podemos hacer el gap fluido */
+    --inner-gap: clamp(18px, 10vw, 25px);
     --border-color-primary: var(--primary-color);
     --border-width: .5px;
-    --inner-gap: 35px;
     --cut-thickness: 10px;
 }
 
@@ -15,9 +17,61 @@ body {
     box-sizing: border-box;
 }
 
-.hero-content {
-    padding: 1.5rem;
+
+
+#hero-section {
+    padding: 4rem 0;
+    /* Solo padding vertical, el horizontal lo da el container */
+
+    /* Usamos el container como el motor del layout */
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            text-align: left;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+    }
 }
+
+/* 3. DISTRIBUCIÓN 50/50 */
+@media (min-width: 1024px) {
+
+    .hero-content,
+    .hero-image-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* En la columna de imagen, centramos el card */
+        justify-content: center;
+    }
+
+    .hero-image-column {
+        align-items: flex-end;
+        /* Empuja el círculo hacia la derecha en desktop */
+    }
+}
+
+.container {
+    max-width: 1280px;
+    /* Un estándar más equilibrado */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* .hero-content {
+    padding: 1.5rem;
+} */
 
 .hero-title {
     color: var(--secondary-color);
@@ -26,12 +80,16 @@ body {
 
 .hero-subtitle {
     color: var(--secondary-color);
-    font-size: 2.5rem;
+    font-size: 2.9rem;
+    line-height: 1;
     font-weight: 900;
-    margin-top: -15px;
 
     span {
         color: var(--primary-color);
+    }
+
+    @media (min-width: 768px) {
+        font-size: 4.5rem;
     }
 }
 
@@ -39,6 +97,14 @@ body {
     margin-top: 2rem;
     display: flex;
     gap: 1rem;
+    font-size: .8rem;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        font-size: 1rem;
+        justify-content: flex-start;
+    }
 }
 
 .primary-button {
@@ -62,8 +128,12 @@ body {
 
 .hero-description {
     color: var(--tertiary-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 1rem;
+
+    @media (min-width: 768px) {
+        font-size: 1.25rem;
+    }
 }
 
 .profile-card {
@@ -81,12 +151,10 @@ body {
     justify-content: center;
     align-items: start;
 
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black calc(100% - var(--cut-thickness)),
-        transparent calc(100% - var(--cut-thickness)),
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to bottom,
+            black calc(100% - var(--cut-thickness)),
+            transparent calc(100% - var(--cut-thickness)),
+            transparent 100%);
 
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
@@ -103,4 +171,41 @@ body {
     object-position: center top;
     display: block;
     border-radius: 50%;
+}
+
+/* 4. AJUSTE DE BOTONES (Alineación) */
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    /* Centrados en móvil */
+
+    @media (min-width: 1024px) {
+        justify-content: flex-start;
+        /* Alineados a la izquierda en desktop */
+    }
+}
+
+/* 5. EL PROFILE CARD (Blindado para que no se deforme) */
+.profile-card {
+    flex: none;
+    /* Evita que flexbox lo estire */
+    width: var(--profile-size);
+    height: var(--profile-size);
+    aspect-ratio: 1 / 1;
+    /* Mantiene el círculo perfecto */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    padding: var(--inner-gap);
+    box-sizing: border-box;
+    box-shadow: 0 0 0 var(--border-width) var(--border-color-primary) inset;
+
+    /* El resto de tu código de máscara está perfecto */
+    -webkit-mask-image: linear-gradient(to bottom,
+            black calc(100% - var(--cut-thickness)),
+            transparent calc(100% - var(--cut-thickness)),
+            transparent 100%);
 }
