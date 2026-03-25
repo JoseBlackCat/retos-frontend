@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const retos = await getCollection("retos");
+const retosSorted = retos.sort(
+  (a, b) => b.data.completedDate.getTime() - a.data.completedDate.getTime(),
+);
+---
+
+<Layout title="Mis Retos Frontend">
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-5xl font-bold mb-8">Retos Frontend</h1>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        retosSorted.map((reto) => (
+          <a
+            href={`/retos/${reto.id.replace(".md", "")}`}
+            class="block p-6 border rounded-lg hover:shadow-lg transition"
+          >
+            <h2 class="text-2xl font-bold mb-2">{reto.data.title}</h2>
+            <p class="text-gray-600 mb-4">{reto.data.description}</p>
+
+            <div class="flex gap-2 flex-wrap">
+              {reto.data.tags.map((tag) => (
+                <span class="px-2 py-1 bg-gray-100 text-sm rounded">{tag}</span>
+              ))}
+            </div>
+
+            <span
+              class={`inline-block mt-4 px-3 py-1 rounded text-sm ${
+                reto.data.difficulty === "facil"
+                  ? "bg-green-100 text-green-800"
+                  : reto.data.difficulty === "medio"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : "bg-red-100 text-red-800"
+              }`}
+            >
+              {reto.data.difficulty}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

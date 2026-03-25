@@ -1,0 +1,106 @@
+:root {
+    --primary-color: rgb(141, 55, 22);
+    --secondary-color: #24262f;
+    --tertiary-color: #4e525a;
+
+    --profile-size: 400px;
+    --border-color-primary: var(--primary-color);
+    --border-width: .5px;
+    --inner-gap: 35px;
+    --cut-thickness: 10px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    padding: 1.5rem;
+}
+
+.hero-title {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.hero-subtitle {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: -15px;
+
+    span {
+        color: var(--primary-color);
+    }
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-button {
+    color: var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    border: .5px solid var(--secondary-color);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hero-description {
+    color: var(--tertiary-color);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.profile-card {
+    width: var(--profile-size);
+    height: var(--profile-size);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin: 2rem auto;
+    position: relative;
+    padding: var(--inner-gap);
+    box-sizing: border-box;
+    box-shadow: 0 0 0 var(--border-width) var(--border-color-primary) inset;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black calc(100% - var(--cut-thickness)),
+        transparent calc(100% - var(--cut-thickness)),
+        transparent 100%
+    );
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 50%;
+}

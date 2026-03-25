@@ -1,0 +1,46 @@
+---
+import "../../styles/retos/portafolio.css";
+import "../../styles/global.css";
+
+import { Image } from "astro:assets";
+import ProfileImg from "../../assets/images/portafolio/photo-profile.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Mi portafolio</title>
+  </head>
+  <body>
+    <header>Header</header>
+    <main>
+      <section id="hero-section">
+        <article class="hero-content">
+          <h2 class="hero-title">Hola!, Soy José Marchan 👋🏻</h2>
+          <h1 class="hero-subtitle">Desarrollador <span>Front</span>end</h1>
+
+          <p class="hero-description">
+            Soy un desarrollador frontend de Perú, te ayudaré a desarrollar tus
+            proyectos web para que sean modernos y funcionales.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#" class="primary-button">Contáctame</a>
+            <a href="#" class="secondary-button">Explorar proyectos</a>
+          </div>
+        </article>
+        <figure class="profile-card">
+          <Image
+            src={ProfileImg}
+            alt="Foto de perfil de José Marchan"
+            class="profile-image"
+          />
+        </figure>
+      </section>
+    </main>
+    <footer>Footer</footer>
+  </body>
+</html>

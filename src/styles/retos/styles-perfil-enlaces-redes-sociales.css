@@ -1,0 +1,39 @@
+:root {
+    --green: hsl(75, 94%, 57%);
+    --white: hsl(0, 0%, 100%);
+    --grey-700: hsl(0, 0%, 20%);
+    --grey-800: hsl(0, 0%, 12%);
+    --grey-900: hsl(0, 0%, 8%);
+}
+
+.link-socials {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+}
+
+.links-socials-card {
+    background-color: var(--grey-800);
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+
+    @media (min-width: 640px) {
+        padding: 3rem 2rem;
+        max-width: 500px;
+    }
+}
+
+#ubication {
+    color: var(--green);
+}
+
+a {
+    background-color: var(--grey-700);
+
+    &:hover {
+        background-color: var(--green);
+        color: var(--grey-800);
+        box-shadow: var(--green) 0px 0px 100px;
+    }
+}

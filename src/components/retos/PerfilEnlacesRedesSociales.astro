@@ -1,0 +1,49 @@
+---
+import "../../styles/retos/styles-perfil-enlaces-redes-sociales.css";
+import { Image } from "astro:assets";
+import ProfileImg from "../../assets/images/perfil-enlaces-redes-sociales/avatar-jessica.jpeg";
+---
+
+<div class="links-socials">
+  <div class="links-socials-card">
+    <header class="flex flex-col items-center">
+      <Image
+        class="rounded-full w-24 h-24"
+        src={ProfileImg}
+        alt="Jessica's profile picture"
+      />
+      <h1 class="text-3xl font-medium mt-4 text-white">Jessica Randall</h1>
+      <p id="ubication" class="font-semibold">London, United Kingdom</p>
+      <p class="mt-4 text-white">"Front-end developer and avid reader."</p>
+    </header>
+    <footer class="mt-4">
+      <div class="flex flex-col items-center gap-4">
+        <a
+          href="#"
+          class="block w-full rounded-xl py-4 text-center text-white font-semibold transition-all duration-200"
+          >Github</a
+        >
+        <a
+          href="#"
+          class="block w-full rounded-xl py-4 text-center text-white font-semibold transition-all duration-200"
+          >Frontend Mentor</a
+        >
+        <a
+          href="#"
+          class="block w-full rounded-xl py-4 text-center text-white font-semibold transition-all duration-200"
+          >LinkedIn</a
+        >
+        <a
+          href="#"
+          class="block w-full rounded-xl py-4 text-center text-white font-semibold transition-all duration-200"
+          >Twitter</a
+        >
+        <a
+          href="#"
+          class="block w-full rounded-xl py-4 text-center text-white font-semibold transition-all duration-200"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+  </div>
+</div>
